@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator & Konwerter</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <!-- ZAKŁADKI -->
+      <div class="tabs">
+        <button class="tab active" data-tab="calculator">🧮 Kalkulator</button>
+        <button class="tab" data-tab="converter">🔄 Konwerter</button>
+      </div>
+
+      <!-- ===== KALKULATOR ===== -->
+      <div class="panel active" id="panel-calculator">
+        <div class="calculator">
+          <!-- WYŚWIETLACZ -->
+          <div class="display">
+            <div class="display-expression" id="expression"></div>
+            <div class="display-result" id="result">0</div>
+          </div>
+
+          <!-- PRZYCISKI -->
+          <div class="buttons-grid">
+            <!-- Wiersz 1 -->
+            <button class="btn btn-fn" data-action="clear">C</button>
+            <button class="btn btn-fn" data-action="sign">+/-</button>
+            <button class="btn btn-fn" data-action="percent">%</button>
+            <button class="btn btn-op" data-action="operator" data-value="÷">
+              ÷
+            </button>
+
+            <!-- Wiersz 2 -->
+            <button class="btn btn-num" data-action="number" data-value="7">
+              7
+            </button>
+            <button class="btn btn-num" data-action="number" data-value="8">
+              8
+            </button>
+            <button class="btn btn-num" data-action="number" data-value="9">
+              9
+            </button>
+            <button class="btn btn-op" data-action="operator" data-value="×">
+              ×
+            </button>
+
+            <!-- Wiersz 3 -->
+            <button class="btn btn-num" data-action="number" data-value="4">
+              4
+            </button>
+            <button class="btn btn-num" data-action="number" data-value="5">
+              5
+            </button>
+            <button class="btn btn-num" data-action="number" data-value="6">
+              6
+            </button>
+            <button class="btn btn-op" data-action="operator" data-value="−">
+              −
+            </button>
+
+            <!-- Wiersz 4 -->
+            <button class="btn btn-num" data-action="number" data-value="1">
+              1
+            </button>
+            <button class="btn btn-num" data-action="number" data-value="2">
+              2
+            </button>
+            <button class="btn btn-num" data-action="number" data-value="3">
+              3
+            </button>
+            <button class="btn btn-op" data-action="operator" data-value="+">
+              +
+            </button>
+
+            <!-- Wiersz 5 -->
+            <button
+              class="btn btn-num btn-wide"
+              data-action="number"
+              data-value="0"
+            >
+              0
+            </button>
+            <button class="btn btn-num" data-action="decimal">.</button>
+            <button class="btn btn-eq" data-action="equals">=</button>
+          </div>
+
+          <!-- HISTORIA -->
+          <div class="history-section">
+            <div class="history-header">
+              <span>📋 Historia</span>
+              <button id="clearHistoryBtn" class="clear-history-btn">
+                Wyczyść
+              </button>
+            </div>
+            <div class="history-list" id="historyList">
+              <div class="history-empty">Brak obliczeń</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== KONWERTER ===== -->
+      <div class="panel" id="panel-converter">
+        <div class="converter">
+          <!-- WYBÓR KATEGORII -->
+          <div class="conv-categories" id="convCategories">
+            <button class="conv-cat active" data-category="temperature">
+              🌡️ Temperatura
+            </button>
+            <button class="conv-cat" data-category="length">📏 Długość</button>
+            <button class="conv-cat" data-category="weight">⚖️ Waga</button>
+            <button class="conv-cat" data-category="speed">🚀 Prędkość</button>
+          </div>
+
+          <!-- KONWERTER INPUT -->
+          <div class="conv-input-section">
+            <div class="conv-row">
+              <div class="conv-field">
+                <select id="fromUnit" class="unit-select"></select>
+                <input
+                  type="number"
+                  id="fromValue"
+                  class="conv-input"
+                  placeholder="Wpisz wartość..."
+                />
+              </div>
+
+              <button class="swap-btn" id="swapBtn" title="Zamień jednostki">
+                ⇄
+              </button>
+
+              <div class="conv-field">
+                <select id="toUnit" class="unit-select"></select>
+                <input
+                  type="number"
+                  id="toValue"
+                  class="conv-input"
+                  placeholder="Wynik..."
+                  readonly
+                />
+              </div>
+            </div>
+
+            <div class="conv-formula" id="convFormula"></div>
+          </div>
+
+          <!-- TABELA WSZYSTKICH PRZELICZNIKÓW -->
+          <div class="conv-table-section">
+            <h3>📊 Tabela przeliczników</h3>
+            <div class="conv-table" id="convTable"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
